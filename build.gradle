@@ -1,5 +1,6 @@
 #!/usr/bin/env gradle -b
 //Damn, this hashbang/shebang shiznit is cool, *nix FTW!
+//Fail!!! Broken on Ubuntu 10.04 due to crappy 'env' (Linux-wide???) - works on OSX
 
 
 /**
