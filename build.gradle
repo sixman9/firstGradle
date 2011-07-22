@@ -1,0 +1,57 @@
+#!/usr/bin/env gradle -b
+//Damn, this hashbang/shebang shiznit is cool, *nix FTW!
+
+
+/**
+ * From info found at: http://code.google.com/p/simpleds/source/browse/trunk/build.gradle
+ *
+ * To use nexus, create a ~/.gradle/gradle.properties file with this contents
+ *    nexusLocation=http://<server>:<port>/nexus/content/groups/public
+ *
+ * To install to the local repository: gradle install
+ * To upload to the maven repository: gradle upload
+ *
+ */
+
+// standard configuration
+getLogging().captureStandardOutput(LogLevel.INFO)
+configurations { compile }
+
+// add additional repositories here if you need them
+repositories {
+
+    mavenLocal()
+
+    if (project.hasProperty('nexusLocation')) {
+        mavenRepo name: 'nexus', urls: nexusLocation
+    }
+
+    mavenCentral()
+}
+
+// add any dependencies you want downloaded as part of the bootstrap process
+dependencies {
+    //compile 'com.google.collections:google-collections:1.0-rc2'
+}
+
+apply plugin: 'templates'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+// if you want to use the gradle wrapper
+task('wrapper', type: Wrapper).configure {
+    gradleVersion = '1.0-milestone-3'
+}
+
+//Maven Artifact Upload - From info found at http://blog.dawouds.com/2010/11/gradle-groovy-spring-nexus-no-maven.html
+/*
+uploadArchives {
+  repositories.mavenDeployer {
+    id = 'nexus-releases'
+    repository(url: nexusLocation.Release) {
+          authentication(userName: nexusLocation.Release.user, password: nexusLocation.Release.password)
+    }
+  }
+}
+*/
+
