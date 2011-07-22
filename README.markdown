@@ -1,1 +1,1 @@
-If gradle is on your classpath, type 'gradle tasks', esle try, 'gradlew tasks'.
+If gradle is on your classpath, type 'gradle tasks', else try, 'gradlew tasks'.
