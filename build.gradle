@@ -34,7 +34,9 @@ dependencies {
     //compile 'com.google.collections:google-collections:1.0-rc2'
 }
 
-apply plugin: 'templates'
+
+//Get the 'Templates' plugin from http://launchpad.net/gradle-templates/trunk/1.0/+download/templates.jar
+//apply plugin: 'templates'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 
