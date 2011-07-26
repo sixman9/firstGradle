@@ -1,6 +1,12 @@
-#!/usr/bin/env gradle -b
+//#!/usr/bin/env gradle -b
 //Damn, this hashbang/shebang shiznit is cool, *nix FTW!
 //Fail!!! Broken on Ubuntu 10.04 due to crappy 'env' (Linux-wide???) - works on OSX
+
+//Get the 'Templates' plugin from http://launchpad.net/gradle-templates/trunk/1.0/+download/templates.jar
+//apply plugin: 'templates'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
 
 
 /**
@@ -33,13 +39,8 @@ repositories {
 // add any dependencies you want downloaded as part of the bootstrap process
 dependencies {
     //compile 'com.google.collections:google-collections:1.0-rc2'
+	groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.7.10'
 }
-
-
-//Get the 'Templates' plugin from http://launchpad.net/gradle-templates/trunk/1.0/+download/templates.jar
-//apply plugin: 'templates'
-apply plugin: 'maven'
-apply plugin: 'eclipse'
 
 // if you want to use the gradle wrapper
 task('wrapper', type: Wrapper).configure {
